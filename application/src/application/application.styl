@@ -1,0 +1,87 @@
+@import "../variables.styl"
+
+html, body
+  height: 100%
+  width: 100%
+
+
+body
+  padding: 80px 0 20px
+
+.guest
+  &-setting
+      position: fixed
+      top: 0
+      left: 0
+      width: 100%
+      height: 80px
+      background: #fff
+      padding: 20px 0
+      z-index: 2
+
+      .btn
+          margin-right: 10px
+          margin-bottom: 15px
+
+  &-form
+    padding: 25px 0 10px
+    background: #eee
+    z-index: 1
+    height: auto
+    //display: none
+
+    &__error
+      color: orangered
+      display: inline-block
+      margin: 5px
+      font-weight: 300
+
+    &__message
+      resize: none
+      height: 200px
+      font-size: 16px
+
+
+  &-list
+    margin: 40px 0
+    &-item
+      margin: 0 0 20px
+      padding: 0 0 20px
+      border-bottom: 1px solid #eee
+      transition: 0.4s ease
+
+      &:last-child
+        border-bottom: 0
+
+      &__name
+        .ng-binding
+          font-size: 20px
+
+      &__message
+        font-size: 16px
+        transition: 0.4s ease
+
+      &__setting
+        text-align: right
+        display: none
+        i
+          font-size: 32px
+          text-align: right
+          padding: 0 4px
+          cursor: pointer
+          transtion: 0.4s
+
+          &:hover
+            color: #0b97c4
+
+
+      &:hover
+        .guest-list-item__setting
+          display: block
+
+
+
+
+
+
+

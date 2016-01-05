@@ -1,0 +1,45 @@
+div.container
+    // form for adding new message
+    div.guest-setting
+        div.container
+            div(ng-click="appCtrl.showForm()").btn.btn-default
+                span(ng-show="!appCtrl.checked")  New message
+                span(ng-show="appCtrl.checked")   Put message away
+            div(ng-click="appCtrl.getMessages()").btn.btn-default
+                | Load message
+
+
+        form(ng-show="appCtrl.checked").form.guest-form
+            div.container
+                div.form-group
+                    label   Your name
+                    input(placeholder="name", ng-model="appCtrl.form.name").form-control.guest-form__name
+                    span(ng-show="!appCtrl.form.name").guest-form__error Error
+                div.form-group
+                    label   What do you think?
+                    textarea(ng-model="appCtrl.form.text").form-control.form-guest__message
+                    span(ng-show="!appCtrl.form.text").guest-form__error Error
+                input(type="submit", ng-click="appCtrl.addMessage()", value="Send").btn.btn-default.guest-form__send
+
+    // List with messages
+    section.guest-list
+        h1.guest-list__title
+            article(ng-repeat="message in appCtrl.messages", data-id="{{message.id}}").guest-list-item
+                h4.guest-list-item__name Message from {{message.name}}
+                div.guest-list-item__message
+                    p {{message.text}}
+                nav.guest-list-item__setting
+                    i(ng-click="appCtrl.editMessage(message)").fa.fa-pencil
+                    i(ng-click="appCtrl.deleteMessage(message)").fa.fa-trash-o
+
+
+        // Pagination
+        //nav.pagination
+        //    ul.pager
+        //        li.previous.disabled
+        //            a(href="#")
+        //                span(aria-hidden="true") &larr; Older
+        //        li.next
+        //            a(href="#")
+        //                | Newer
+        //                span(aria-hidden="true") &rarr;
