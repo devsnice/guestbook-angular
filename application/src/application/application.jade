@@ -5,8 +5,6 @@ div.container
             div(ng-click="appCtrl.showForm()").btn.btn-default
                 span(ng-show="!appCtrl.checked")  New message
                 span(ng-show="appCtrl.checked")   Put message away
-            div(ng-click="appCtrl.getMessages()").btn.btn-default
-                | Load message
 
 
         form(ng-show="appCtrl.checked").form.guest-form
@@ -33,13 +31,8 @@ div.container
                     i(ng-click="appCtrl.deleteMessage(message)").fa.fa-trash-o
 
 
-        // Pagination
-        //nav.pagination
-        //    ul.pager
-        //        li.previous.disabled
-        //            a(href="#")
-        //                span(aria-hidden="true") &larr; Older
-        //        li.next
-        //            a(href="#")
-        //                | Newer
-        //                span(aria-hidden="true") &rarr;
+            nav.pagination
+                ul.pagination-list
+                    li.pagination-list__item
+
+
