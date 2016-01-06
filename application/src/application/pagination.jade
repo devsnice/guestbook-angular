@@ -1,0 +1,5 @@
+// pagination
+nav.pagination
+    ul.pagination-list
+        li.pagination-list__item(ng-repeat="page in paginationCtrl.pages", ng-click="paginationCtrl.viewPage(page)")
+            | {{page}}

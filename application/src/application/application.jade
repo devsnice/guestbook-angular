@@ -17,22 +17,21 @@ div.container
                     label   What do you think?
                     textarea(ng-model="appCtrl.form.text").form-control.form-guest__message
                     span(ng-show="!appCtrl.form.text").guest-form__error Error
-                input(type="submit", ng-click="appCtrl.addMessage()", value="Send").btn.btn-default.guest-form__send
+                input(type="submit", ng-click="appCtrl.addMessage()", ng-show="appCtrl.addMode == 'add'", value="Send").btn.btn-default.guest-form__send
+                input(type="submit", ng-click="appCtrl.editOldMessage()", ng-show="appCtrl.addMode == 'edit'", value="Edit msg").btn.btn-default.guest-form__send
 
     // List with messages
     section.guest-list
         h1.guest-list__title
-            article(ng-repeat="message in appCtrl.messages", data-id="{{message.id}}").guest-list-item
+            article(ng-repeat="message in appCtrl.getMessages()", data-id="{{message.id}}").guest-list-item
                 h4.guest-list-item__name Message from {{message.name}}
                 div.guest-list-item__message
                     p {{message.text}}
                 nav.guest-list-item__setting
                     i(ng-click="appCtrl.editMessage(message)").fa.fa-pencil
                     i(ng-click="appCtrl.deleteMessage(message)").fa.fa-trash-o
+            //section(ng-show="").guest-list__error Here's empty
 
-
-            nav.pagination
-                ul.pagination-list
-                    li.pagination-list__item
+        div(pagination-msg)
 
 
